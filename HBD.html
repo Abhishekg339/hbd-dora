@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ananthika</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:url('bg2.jpg') center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Dark overlay */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:0;
+}
+
+/* Floating symbols */
+.icon{
+  position:absolute;
+  font-size:22px;
+  opacity:.55;
+  animation:float 7s linear infinite;
+  z-index:1;
+}
+
+@keyframes float{
+  0%{transform:translateY(110vh);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* Card */
+.card{
+  position:relative;
+  z-index:2;
+  width:min(380px,90%);
+  padding:28px 24px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(18px);
+  text-align:center;
+  color:#fff;
+  animation:cardIn 1.3s ease;
+}
+
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+  font-size:clamp(22px,4vw,26px);
+  margin-bottom:8px;
+}
+
+h1 span{
+  color:#ffcc00;
+  text-shadow:0 0 10px rgba(255,204,0,.8);
+}
+
+.quote{
+  font-size:clamp(14px,3.5vw,15px);
+  font-style:italic;
+  line-height:1.6;
+  margin-top:10px;
+  opacity:.95;
+}
+
+/* Responsive image slider */
+.slider{
+  position:relative;
+  width:100%;
+  aspect-ratio:4 / 5;      /* portrait ratio */
+  max-height:420px;
+  margin-top:18px;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.slider img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  opacity:0;
+  animation:slide 9s infinite;
+}
+
+.slider img:nth-child(1){animation-delay:0s;}
+.slider img:nth-child(2){animation-delay:3s;}
+.slider img:nth-child(3){animation-delay:6s;}
+
+@keyframes slide{
+  0%{opacity:0;transform:scale(1.05);}
+  10%{opacity:1;transform:scale(1);}
+  30%{opacity:1;}
+  40%{opacity:0;}
+  100%{opacity:0;}
+}
+
+.signature{
+  margin-top:12px;
+  font-size:13px;
+  opacity:.85;
+}
+
+/* Mobile fine-tuning */
+@media(max-width:600px){
+  .card{
+    padding:24px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const icons=["🌊","⭐","⚓","🏴‍☠️"];
+for(let i=0;i<20;i++){
+  let el=document.createElement("div");
+  el.className="icon";
+  el.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDuration=(Math.random()*3+4)+"s";
+  document.body.appendChild(el);
+}
+</script>
+
+<div class="card">
+  <h1>Happy Birthday,<br><span>Ananthika</span> 🎂</h1>
+
+  <div class="quote">
+    “In this Grand Line of life,  
+    meeting you was my favorite adventure.”
+  </div>
+
+  <!-- BIG RESPONSIVE PHOTOS -->
+  <div class="slider">
+    <img src="pic1.jpg" alt="">
+    <img src="pic2.jpg" alt="">
+    <img src="pic3.jpg" alt="">
+  </div>
+
+  <div class="signature">
+    — From someone who truly cares 🌊
+  </div>
+</div>
+
+</body>
+</html>
